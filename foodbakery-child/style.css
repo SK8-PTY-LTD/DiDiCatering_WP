@@ -1,0 +1,57 @@
+/*
+Theme Name: DiDiCatering
+Theme URI: http://www.chimpstudio.co.uk/
+Template: foodbakery
+Author: SK8Tech
+Author URI: https://sk8.tech
+Description: DiDiCatering Powered by SK8Tech
+Updated: 2019-01-29 14:13:09
+
+*/
+
+.main-header .logo {
+    max-width: none;
+}
+#home-video {
+    padding: 0;
+    margin: 0;
+}
+#home-video .container {
+    width: 100%;
+}
+#home-video .row > div {
+    padding: 0;
+}
+#home-video .row > div > .foodbakery_editor {
+    margin: 0;
+}
+#hero .contact-info {
+    text-align: center;
+}
+#hero .contact-info li {
+    display: inline-block;
+}
+#hero .contact-info li .address-text {
+    font-size: 18px;
+    color: #505050;
+}
+#hero .contact-info li .address-text strong {
+    font-size: 22px;
+}
+#top-restaurants .company-logo ul li.has-border figure {
+    border: none;
+}
+.tp-caption {
+    white-space: normal !important;
+}
+.img-rounded img {
+    display: block;
+    border-radius: 50%;
+}
+.wpcf7 label {
+	width: 100%;
+}
+.wpcf7 input.wpcf7-form-control.wpcf7-submit {
+    padding: 5px 30px;
+    border-radius: 5px;
+}
