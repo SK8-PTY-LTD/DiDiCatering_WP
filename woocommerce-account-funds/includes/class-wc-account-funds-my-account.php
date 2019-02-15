@@ -240,7 +240,7 @@ class WC_Account_Funds_My_Account extends WC_Query {
 
 		$this->my_account_orders();
 	}
-
+	
 	/**
 	 * Get HTML string for topup form in my account.
 	 *

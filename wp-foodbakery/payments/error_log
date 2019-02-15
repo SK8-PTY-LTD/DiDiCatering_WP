@@ -1,0 +1,14 @@
+[08-Jul-2017 15:55:55 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Invalid order.' in /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:86
+Stack trace:
+#0 /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(143): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-order.php(109): WC_Data_Store->read(Object(WC_Order))
+#2 /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/wp-foodbakery/payments/listner.php(11): WC_Abstract_Order->__construct('4077')
+#3 {main}
+  thrown in /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php on line 86
+[09-Jul-2017 13:35:25 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'Invalid order.' in /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:86
+Stack trace:
+#0 /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/woocommerce/includes/class-wc-data-store.php(143): Abstract_WC_Order_Data_Store_CPT->read(Object(WC_Order))
+#1 /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/woocommerce/includes/abstracts/abstract-wc-order.php(109): WC_Data_Store->read(Object(WC_Order))
+#2 /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/wp-foodbakery/payments/listner.php(11): WC_Abstract_Order->__construct('4089')
+#3 {main}
+  thrown in /home/group/public_html/wp-demo/foodbakery/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php on line 86

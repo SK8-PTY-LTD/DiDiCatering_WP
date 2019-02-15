@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<wpml-config>
+	<custom-types>
+		<custom-type translate="1">restaurants</custom-type>
+ 		<custom-type translate="1">restaurant-type</custom-type>
+		<custom-type translate="1">foodbakery_claims</custom-type>
+		<custom-type translate="1">restaurant-alert</custom-type>
+		<custom-type translate="1">jh-templates</custom-type>
+		<custom-type translate="1">notifications</custom-type>
+		<custom-type translate="0">orders_inquiries</custom-type>
+		<custom-type translate="1">foodbakery-trans</custom-type>
+		<custom-type translate="0">package-orders</custom-type>
+		<custom-type translate="1">foodbakery_reviews</custom-type>
+		<custom-type translate="1">packages</custom-type>
+		<custom-type translate="1">foodbakery-pt</custom-type>
+		<custom-type translate="1">publishers</custom-type>
+	</custom-types>
+	<taxonomies>
+		<taxonomy translate="1">restaurant_location</taxonomy>
+		<taxonomy translate="1">restaurant-category</taxonomy>
+	</taxonomies>
+</wpml-config>
