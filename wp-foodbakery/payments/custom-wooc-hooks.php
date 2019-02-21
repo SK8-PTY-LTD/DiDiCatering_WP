@@ -102,11 +102,12 @@ if (!class_exists('Payment_Processing')) {
 
 	public function custom_thankyou_page($order_id) {
 	    global $foodbakery_plugin_options;
-	    $rcv_parameters = get_post_meta($order_id, '_rcv_parameters', true);
-	    $transaction_id = $rcv_parameters['custom_var']['foodbakery_transaction_id'];
+		$rcv_parameters = get_post_meta($order_id, '_rcv_parameters', true);
+	   
 	    //$this->update_woocommerce_details_order( $order_id, $transaction_id );
 
 	    if (isset($rcv_parameters) && !empty($rcv_parameters)) {
+		$transaction_id = $rcv_parameters['custom_var']['foodbakery_transaction_id'];
 		$return_url = $rcv_parameters['redirect_url'];
 		$order = new WC_Order($order_id);
 		$payment_method = get_post_meta($order_id, '_payment_method', true);
@@ -122,7 +123,7 @@ if (!class_exists('Payment_Processing')) {
 		}
 		update_option('custom_order_status_array', $order_status_array);
 		wp_redirect($return_url);
-	    }
+		}
 	}
 
 	public function action_woocommerce_new_order($order_id) {

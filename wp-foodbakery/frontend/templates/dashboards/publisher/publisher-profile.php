@@ -797,19 +797,6 @@ if ( ! class_exists( 'Foodbakery_Publisher_Profile' ) ) {
                                                     </div>
                                                 </div>
 
-                                                <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <div><label><?php echo __( 'Account fund', 'foodbakery' ); ?></label></div>
-                                                            
-                                                    <?php
-                                                        // account funds 
-                                                        echo do_shortcode("[get-account-funds]");
-                                                        echo '<br/>'; 
-                                                        $wc_my_account = new WC_Account_Funds_My_Account();
-                                                        echo $wc_my_account->my_account();
-                                                        //echo do_shortcode("[get-account-topup]");
-                                                    ?>
-                                                </div>
-
                                             <?php } ?>
                                         </div>
                                     </div>
@@ -882,6 +869,16 @@ if ( ! class_exists( 'Foodbakery_Publisher_Profile' ) ) {
                                             </ul>
 
                                         </div>
+                                        
+
+                    </div>
+                    <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <?php
+                            // account funds 
+                            $wc_my_account = new WC_Account_Funds_My_Account();
+                            echo $wc_my_account->my_account();
+                        ?>
                     </div>
                             
 

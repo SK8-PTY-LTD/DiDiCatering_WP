@@ -141,9 +141,6 @@ class WC_Gateway_Account_Funds extends WC_Payment_Gateway {
 		// Payment complete
 		$order->payment_complete();
 
-		//auto upgrade membership
-		upgrade_membership($order);
-
 		// Remove cart
 		WC()->cart->empty_cart();
 
@@ -285,30 +282,5 @@ class WC_Gateway_Account_Funds extends WC_Payment_Gateway {
 		return sprintf( __( 'Via %s', 'woocommerce-account-funds' ), $this->method_title );
 	}
 
-	/**
-	 * upgrade membership
-	 */
-	public function upgrade_membership($order) {
-
-		$plan_id = null;
-		$topup_amount = $order->total;
-		$new_membership = new WC_Memberships_User_Memberships();
-
-		//select silver plan or golden plan based on the yopup amount
-		if (isset($topup_amount)&& ($topup_amount > 0)){
-			$plan_id = 17221;
-		}elseif (isset($topup_amount)&& ($topup_amount > 1000)){
-			$plan_id = 17236;
-		}
-
-		$access_args = array(
-			'user_id' => $order->customer_id,
-			'plan_id' => $plan_id,
-		);
-		$action = 'create';
-
-		if (isset($plan_id)  && ($plan_id === 17221||17236){
-			$new_membership->create_user_membership($access_args, $action);
-		}
-	}
+	
 }
