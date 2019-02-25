@@ -231,7 +231,7 @@ class WC_Account_Funds_My_Account extends WC_Query {
 	public function my_account() {
 		$funds = WC_Account_Funds::get_account_funds();
 
-		echo '<h2>'. __( 'Account Funds', 'woocommerce-account-funds' ) .'</h2>';
+		echo '<h5>'. __( 'Account Funds', 'woocommerce-account-funds' ) .'</h5>';
 		echo '<p>'. sprintf( __( 'You currently have <strong>%s</strong> worth of funds in your account.', 'woocommerce-account-funds' ), $funds ) . '</p>';
 
 		if ( 'yes' === get_option( 'account_funds_enable_topup' ) ) {
@@ -266,7 +266,9 @@ class WC_Account_Funds_My_Account extends WC_Query {
 		$topup_in_cart = array_shift( $items_in_cart );
 		if ( ! empty( $max_topup ) && ! empty( $topup_in_cart ) ) {
 			printf(
-				'<p class="woocommerce-info"><a href="%s" class="button wc-forward">%s</a> %s</p>',
+				'<p class="woocommerce-info"><a href="%s" style="padding: 5px 10px;
+				background-color: #c33332;
+				color: #FFFFFF;">%s</a> %s</p>',
 				wc_get_page_permalink( 'cart' ),
 				__( 'View Cart', 'woocommerce-account-funds' ),
 				sprintf( __( 'You have "%s" in your cart.', 'woocommerce-account-funds' ), $topup_in_cart['data']->get_title() )

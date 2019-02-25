@@ -879,11 +879,12 @@ if ( ! class_exists( 'Foodbakery_Publisher_Profile' ) ) {
                             $wc_my_account = new WC_Account_Funds_My_Account();
                             echo $wc_my_account->my_account();
                         ?>
+                        <p></p>
                     </div>
                             
 
                                     
-                            <?php
+                        <?php
                         } // END company_profile CHECK
                         $wp_upload_dir = wp_upload_dir();
                         ?>

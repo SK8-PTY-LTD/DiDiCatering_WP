@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $pre_wc_30 = version_compare( WC_VERSION, '3.0.0', '<' );
 ?>
-<h2><?php _e( 'Recent Deposits', 'woocommerce-account-funds' ); ?></h2>
+<h5><?php _e( 'Recent Deposits', 'woocommerce-account-funds' ); ?></h5>
 <table class="shop_table my_account_deposits">
 	<thead>
 		<tr>
@@ -52,22 +52,23 @@ $pre_wc_30 = version_compare( WC_VERSION, '3.0.0', '<' );
 
 			$order_date = version_compare( WC_VERSION, '3.0', '<' ) ? $order->order_date : ( $order->get_date_created() ? gmdate( 'Y-m-d H:i:s', $order->get_date_created()->getOffsetTimestamp() ) : '' );
 			?><tr class="order">
-			<td class="order-number" data-title="<?php _e( 'Order Number', 'woocommerce-account-funds' ); ?>">
-				<a href="<?php echo $order->get_view_order_url(); ?>">
+			<td class="order-number" style="border: 1px solid #d2d2d2; !important;" data-title="<?php _e( 'Order Number', 'woocommerce-account-funds' ); ?>" >
+				<!-- <a href="<?php //echo $order->get_view_order_url(); ?>"> -->
 					#<?php echo $order->get_order_number(); ?>
-				</a>
+				<!-- </a> -->
 			</td>
-			<td class="order-date" data-title="<?php _e( 'Date', 'woocommerce-account-funds' ); ?>">
+			<td class="order-date" style="border: 1px solid #d2d2d2; !important;" data-title="<?php _e( 'Date', 'woocommerce-account-funds' ); ?>" >
 				<time datetime="<?php echo date( 'Y-m-d', strtotime( $order_date ) ); ?>" title="<?php echo esc_attr( strtotime( $order_date ) ); ?>"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $order_date ) ); ?></time>
 			</td>
-			<td class="order-status" data-title="<?php _e( 'Status', 'woocommerce-account-funds' ); ?>" style="text-align:left; white-space:nowrap;">
+			<td class="order-status" data-title="<?php _e( 'Status', 'woocommerce-account-funds' ); ?>" style="text-align:centers; white-space:nowrap; border: 1px solid #d2d2d2; !important;">
 				<?php echo wc_get_order_status_name( $order->get_status() ); ?>
 			</td>
-			<td class="order-total">
+			<td class="order-total" style="border: 1px solid #d2d2d2; !important;" >
 				<?php echo wc_price( $funded ); ?>
 			</td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
 </table>
+<br/>
 
