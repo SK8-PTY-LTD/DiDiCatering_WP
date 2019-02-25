@@ -177,19 +177,16 @@ class WC_Account_Funds_Order_Manager {
 			$plan_id = 17221;
 		}
 		
-		$user_membership_id;
-		$user_memberships = $new_membership->get_user_memberships($customer_id, array('status' => 'active'));
-		$user_membership_id = $user_memberships[0]->get_id();
-
-		if ((!empty($user_membership_id))&&($user_membership_id !== 0)){
+		if ($new_membership->is_user_member($customer_id)){
+			$user_memberships = $new_membership->get_user_memberships($customer_id, array('status' => 'active',));
+			$user_membership_id = $user_memberships[0]->get_id();
 			$access_args = array(
 				'user_membership_id' => $user_membership_id,
 				'user_id' => $customer_id,
 				'plan_id' => $plan_id,
 			);
 			$action = 'renew';
-		}
-		else {
+		}else{
 			$access_args = array(
 				'user_id' => $customer_id,
 				'plan_id' => $plan_id,
