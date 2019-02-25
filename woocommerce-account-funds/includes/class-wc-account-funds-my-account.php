@@ -198,6 +198,8 @@ class WC_Account_Funds_My_Account extends WC_Query {
 			}
 		}
 	}
+
+
 	/**
 	 * Handle top-ups
 	 */

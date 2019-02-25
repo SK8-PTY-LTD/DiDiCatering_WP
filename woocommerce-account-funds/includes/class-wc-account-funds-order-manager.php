@@ -166,26 +166,39 @@ class WC_Account_Funds_Order_Manager {
 	 * upgrade membership
 	 */
 	public function upgrade_membership($customer_id, $topup_amount) {
-
+		$new_membership = new WC_Memberships_User_Memberships();
 		//select silver plan or golden plan based on the yopup amount
 		//silver plan id = 17221
 		//golden plan id = 17236
+		
 		if (isset($topup_amount)&& ($topup_amount >= 1000)){
 			$plan_id = 17236;
-		}
-		if (isset($topup_amount) && ($topup_amount <1000) && ($topup_amount >= 200)){
+		}elseif (isset($topup_amount) && ($topup_amount <1000) && ($topup_amount >= 200)){
 			$plan_id = 17221;
 		}
+		
+		$user_membership_id;
+		$user_memberships = $new_membership->get_user_memberships($customer_id, array('status' => 'active'));
+		$user_membership_id = $user_memberships[0]->get_id();
 
-		$access_args = array(
-			'user_id' => $customer_id,
-			'plan_id' => $plan_id,
-		);
-		$action = 'create';
-
+		if ((!empty($user_membership_id))&&($user_membership_id !== 0)){
+			$access_args = array(
+				'user_membership_id' => $user_membership_id,
+				'user_id' => $customer_id,
+				'plan_id' => $plan_id,
+			);
+			$action = 'renew';
+		}
+		else {
+			$access_args = array(
+				'user_id' => $customer_id,
+				'plan_id' => $plan_id,
+			);
+			$action = 'create';
+		}
+		
 		if (isset($plan_id)){
-			$upgrade_membership = new WC_Memberships_User_Memberships(); 
-			$upgrade_membership->create_user_membership($access_args, $action);
+			$new_membership->create_user_membership($access_args, $action);
 		}
 	}
 
