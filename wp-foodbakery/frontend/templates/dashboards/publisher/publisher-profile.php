@@ -809,7 +809,6 @@ if ( ! class_exists( 'Foodbakery_Publisher_Profile' ) ) {
                                                     <div class = "field-holder">
                                                         <label><?php echo __( 'Membership', 'foodbakery' ); ?></label>
                                                 <?php
-
                                                     echo '<script>console.log('.$user_memberships[0]->plan->end_date.');</script>';
                                                     echo '<p>'. $user_memberships[0]->plan->name .' Member</p>';
                                                     echo '<p> Expire Date: '. date( 'Y-m-d', $user_memberships[0]->get_end_date( 'timestamp' )).'</p>';
