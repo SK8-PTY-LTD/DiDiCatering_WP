@@ -353,6 +353,16 @@ if ( $publisher_profile_type == 'restaurant' ) {
 
 															<div class="text-holder">
 																<span class="restaurant-title"><?php echo esc_html($display_name) ?></span>
+																<?php
+																	//show membership if is member
+																	$memberships = new WC_Memberships_User_Memberships();
+																	$user_id = get_current_user_id();
+																	$user_memberships = $memberships->get_user_memberships($user_id);
+																	$user_membership = $user_memberships[0]->plan->name;
+																	if (isset($user_membership)&& !empty($user_membership)){
+																		echo '<label style="color: #fff; font-weight:400;">' .$user_memberships[0]->plan->name. __( ' Member', 'foodbakery' ).'</label>';
+																	}
+																?>
 																<?php if ( $foodbakery_user_phone != '' || $display_user_email != '' ) { ?>
 																	<ul class="user-info-contact">
 																		<?php if ( $foodbakery_user_phone != '' ) { ?>
@@ -360,8 +370,10 @@ if ( $publisher_profile_type == 'restaurant' ) {
 																		<?php }if ( $display_user_email != '' ) { ?>
 																			<li class="email"><i class="icon-mail5"></i><a href="mailto:<?php echo esc_html($display_user_email); ?>"><?php echo esc_html($display_user_email); ?></a></li>
 																		<?php } ?>
+																		
 																	</ul>  
 																<?php } ?>
+																
 															</div>
 														</div>
 

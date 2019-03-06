@@ -745,13 +745,13 @@ if ( ! class_exists( 'Foodbakery_Publisher_Profile' ) ) {
 
                                                         $foodbakery_html_fields_frontend->foodbakery_form_text_render( $foodbakery_opt_array );
 														
-							$foodbakery_opt_array = array(
-								'std' => $company_slug,
-								'id' => 'publisher_company_slug',
-								'cust_name' => 'publisher_company_slug',
-								'return' => false,
-							);
-							$foodbakery_form_fields->foodbakery_form_hidden_render($foodbakery_opt_array);
+                                                            $foodbakery_opt_array = array(
+                                                                'std' => $company_slug,
+                                                                'id' => 'publisher_company_slug',
+                                                                'cust_name' => 'publisher_company_slug',
+                                                                'return' => false,
+                                                            );
+                                                            $foodbakery_form_fields->foodbakery_form_hidden_render($foodbakery_opt_array);
                                                         ?>
                                                     </div>
                                                 </div>
@@ -796,6 +796,31 @@ if ( ! class_exists( 'Foodbakery_Publisher_Profile' ) ) {
                                                         ?>
                                                     </div>
                                                 </div>
+                                                
+                                                <?php
+                                                    //show membership if is member
+                                                    $memberships = new WC_Memberships_User_Memberships();
+                                                    $user_id = get_current_user_id();
+                                                    $user_memberships = $memberships->get_user_memberships($user_id);
+                                                    $user_membership = $user_memberships[0]->plan->name;
+                                                    if (isset($user_membership)&& !empty($user_membership)){
+                                                ?>
+                                                <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class = "field-holder">
+                                                        <label><?php echo __( 'Membership', 'foodbakery' ); ?></label>
+                                                <?php
+
+                                                    echo '<script>console.log('.$user_memberships[0]->plan->end_date.');</script>';
+                                                    echo '<p>'. $user_memberships[0]->plan->name .' Member</p>';
+                                                    echo '<p> Expire Date: '. date( 'Y-m-d', $user_memberships[0]->get_end_date( 'timestamp' )).'</p>';
+                                                    
+                                                ?>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                    }
+                                                ?>
+                                                    
 
                                             <?php } ?>
                                         </div>
