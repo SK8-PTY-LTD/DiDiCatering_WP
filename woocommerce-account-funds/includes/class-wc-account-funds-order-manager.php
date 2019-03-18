@@ -170,10 +170,13 @@ class WC_Account_Funds_Order_Manager {
 		//select silver plan or golden plan based on the yopup amount
 		//silver plan id = 17221
 		//golden plan id = 17236
+		//platinum plan id = 17432
 		
-		if (isset($topup_amount)&& ($topup_amount >= 1000)){
+		if (isset($topup_amount)&& ($topup_amount >=5000)){
+			$plan_id = 17432;
+		}elseif (isset($topup_amount) && ($topup_amount <5000) && ($topup_amount >= 2000)){
 			$plan_id = 17236;
-		}elseif (isset($topup_amount) && ($topup_amount <1000) && ($topup_amount >= 200)){
+		}elseif (isset($topup_amount) && ($topup_amount <2000) && ($topup_amount >= 500)){
 			$plan_id = 17221;
 		}
 		

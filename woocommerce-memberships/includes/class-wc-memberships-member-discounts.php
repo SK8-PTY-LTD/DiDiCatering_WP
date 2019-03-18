@@ -493,6 +493,13 @@ class WC_Memberships_Member_Discounts {
 
 		$excluded = false;
 
+		/**
+		 * exclude topup
+		 */
+		if ($product->is_type( 'topup' )){
+			return true;
+		}
+
 		if ( $product instanceof \WP_Post ) {
 			$product_id = $product->ID;
 		} elseif ( $product instanceof \WC_Product ) {
