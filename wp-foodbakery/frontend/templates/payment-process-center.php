@@ -61,16 +61,10 @@ if ( ! function_exists('foodbakery_payment_summary_fields') ) {
 							<textarea class="foodbakery-dev-req-field" name="trans_address">' . $user_info['address'] . '</textarea>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="ol-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="field-holder">
-							<label>' . esc_html__('Delivery Date', 'foodbakery') . '</label>
+							<label>' . esc_html__('Delivery Date and Time', 'foodbakery') . '</label>
 							<input type="text" id="datetimepicker1" class="foodbakery-dev-req-field" name="trans_delivery_date" value="' . $user_info['delivery_date'] . '">
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-						<div class="field-holder">
-							<label>' . esc_html__('Delivery Time', 'foodbakery') . '</label>
-							<input type="time" class="foodbakery-dev-req-field" name="trans_delivery_time" placeholder="' . esc_html__('HH:MM', 'foodbakery') . '" value="' . $user_info['delivery_time'] . '">
 						</div>
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
