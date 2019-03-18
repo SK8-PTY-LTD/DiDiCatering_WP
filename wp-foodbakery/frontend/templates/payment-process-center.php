@@ -26,6 +26,7 @@ if ( ! function_exists('foodbakery_payment_summary_fields') ) {
 		global $current_user;
 
 		$user_info = get_user_info_array();
+		//added delivery date and time, and special requirements
 		$html = '
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="payment-summary-fields">
@@ -58,6 +59,24 @@ if ( ! function_exists('foodbakery_payment_summary_fields') ) {
 						<div class="field-holder">
 							<label>' . esc_html__('Address', 'foodbakery') . '</label>
 							<textarea class="foodbakery-dev-req-field" name="trans_address">' . $user_info['address'] . '</textarea>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="field-holder">
+							<label>' . esc_html__('Delivery Date', 'foodbakery') . '</label>
+							<input type="text" id="datetimepicker1" class="foodbakery-dev-req-field" name="trans_delivery_date" value="' . $user_info['delivery_date'] . '">
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="field-holder">
+							<label>' . esc_html__('Delivery Time', 'foodbakery') . '</label>
+							<input type="time" class="foodbakery-dev-req-field" name="trans_delivery_time" placeholder="' . esc_html__('HH:MM', 'foodbakery') . '" value="' . $user_info['delivery_time'] . '">
+						</div>
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="field-holder">
+							<label>' . esc_html__('Special Requirements', 'foodbakery') . '</label>
+							<textarea class="foodbakery-dev-req-field" name="trans_special" placeholder="eg. Vegetarian or Nuts Free">' . $user_info['special'] . '</textarea>
 						</div>
 					</div>
 				</div>
@@ -611,6 +630,10 @@ if ( ! function_exists('foodbakery_payment_process') ) {
 				$get_trans_email = foodbakery_get_input('trans_email', NULL, 'STRING');
 				$get_trans_phone_number = foodbakery_get_input('trans_phone_number', '');
 				$get_trans_address = foodbakery_get_input('trans_address', NULL, 'STRING');
+				//delivery date, time and special requirements
+				$get_trans_delivery_date = foodbakery_get_input('trans_delivery_date', NULL, 'STRING');
+				$get_trans_delivery_time = foodbakery_get_input('trans_delivery_time', NULL, 'STRING');
+				$get_trans_special = foodbakery_get_input('trans_special', NULL, 'STRING');
 
 				$trans_meta_arr = array(
 					'transaction_id' => $trans_id,
@@ -624,6 +647,9 @@ if ( ! function_exists('foodbakery_payment_process') ) {
 					'trans_email' => $get_trans_email,
 					'trans_phone_number' => $get_trans_phone_number,
 					'trans_address' => $get_trans_address,
+					'trans_delivery_date' => $get_trans_delivery_date,
+					'trans_delivery_time' => $get_trans_delivery_time,
+					'trans_special' => $get_trans_special,
 				);
 
 				// updating all fields of transaction
@@ -662,6 +688,9 @@ if ( ! function_exists('foodbakery_payment_process') ) {
 							'trans_email' => $get_trans_email,
 							'trans_phone_number' => $get_trans_phone_number,
 							'trans_address' => $get_trans_address,
+							'trans_delivery_date' => $get_trans_delivery_date,
+							'trans_delivery_time' => $get_trans_delivery_time,
+							'trans_special' => $get_trans_special,
 						);
 						// updating all fields of transaction
 						foreach ( $trans_fee_meta_arr as $trans_key => $trans_val ) {

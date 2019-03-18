@@ -1834,7 +1834,8 @@ jQuery(document).ready(function () {
                 date: "icon-calendar-o",
                 up: " icon-chevron-up",
                 down: "icon-chevron-down"
-            }
+            },
+            format:'DD/MM/YYYY HH:mm',
         });
     }
     if (jQuery('#datetimepicker4').length != '') {

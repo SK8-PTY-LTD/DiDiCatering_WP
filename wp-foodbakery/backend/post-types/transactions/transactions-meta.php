@@ -167,10 +167,13 @@ if (!function_exists('foodbakery_create_transactions_fields')) {
 		$trans_email = get_post_meta($post->ID, 'foodbakery_trans_email', true);
 		$trans_phone_number = get_post_meta($post->ID, 'foodbakery_trans_phone_number', true);
 		$trans_address = get_post_meta($post->ID, 'foodbakery_trans_address', true);
+		$trans_delivery_date = get_post_meta($post->ID, 'foodbakery_trans_delivery_date', true);
+		$trans_delivery_time = get_post_meta($post->ID, 'foodbakery_trans_delivery_time', true);
+		$trans_special = get_post_meta($post->ID, 'foodbakery_trans_special', true);
 
 		$output = '';
 
-		if ($trans_first_name != '' || $trans_last_name != '' || $trans_email != '' || $trans_phone_number != '' || $trans_address != '') {
+		if ($trans_first_name != '' || $trans_last_name != '' || $trans_email != '' || $trans_phone_number != '' || $trans_address != '' || $trans_delivery_date != '' || $trans_delivery_time != '' || $trans_special != '') {
 
 		    $foodbakery_opt_array = array(
 			'name' => $param['title'],
@@ -204,7 +207,22 @@ if (!function_exists('foodbakery_create_transactions_fields')) {
 			$output .= '<li>';
 			$output .= '<label>' . esc_html__('Address', 'foodbakery') . '</label><span>' . $trans_address . '</span>';
 			$output .= '</li>';
-		    }
+			}
+			if ($trans_delivery_date != '') {
+			$output .= '<li>';
+			$output .= '<label>' . esc_html__('Delivery Date', 'foodbakery') . '</label><span>' . $trans_delivery_date . '</span>';
+			$output .= '</li>';
+			}
+			if ($trans_delivery_time != '') {
+			$output .= '<li>';
+			$output .= '<label>' . esc_html__('Delivery Time', 'foodbakery') . '</label><span>' . $trans_delivery_time . '</span>';
+			$output .= '</li>';
+			}
+			if ($trans_special != '') {
+			$output .= '<li>';
+			$output .= '<label>' . esc_html__('Special Requirements', 'foodbakery') . '</label><span>' . $trans_special . '</span>';
+			$output .= '</li>';
+			}
 
 		    $output .= '<ul>';
 
@@ -225,13 +243,16 @@ if (!function_exists('foodbakery_create_transactions_fields')) {
 		$trans_email = get_post_meta($post->ID, 'foodbakery_trans_email', true);
 		$trans_phone_number = get_post_meta($post->ID, 'foodbakery_trans_phone_number', true);
 		$trans_address = get_post_meta($post->ID, 'foodbakery_trans_address', true);
+		$trans_delivery_date = get_post_meta($post->ID, 'foodbakery_trans_delivery_date', true);
+		$trans_delivery_time = get_post_meta($post->ID, 'foodbakery_trans_delivery_time', true);
+		$trans_special = get_post_meta($post->ID, 'foodbakery_trans_special', true);
                 
                 
                 $wooc_order_all_data    = get_post_meta($post->ID, 'foodbakery_wooc_order_data', true);
 
 		$output = '';
 
-		if ($trans_first_name != '' || $trans_last_name != '' || $trans_email != '' || $trans_phone_number != '' || $trans_address != '') {
+		if ($trans_first_name != '' || $trans_last_name != '' || $trans_email != '' || $trans_phone_number != '' || $trans_address != '' || $trans_delivery_date != '' || $trans_delivery_time != '' || $trans_special != '') {
 
 		    $foodbakery_opt_array = array(
 			'name' => $param['title'],

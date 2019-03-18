@@ -335,7 +335,10 @@ if (!class_exists('Foodbakery_Order_Detail')) {
 		$trans_email = get_post_meta($transaction_order_id, 'foodbakery_trans_email', true);
 		$trans_phone_number = get_post_meta($transaction_order_id, 'foodbakery_trans_phone_number', true);
 		$trans_address = get_post_meta($transaction_order_id, 'foodbakery_trans_address', true);
-		if ($trans_first_name != '' || $trans_last_name != '' || $trans_email != '' || $trans_phone_number != '' || $trans_address != '') {
+		$trans_delivery_date = get_post_meta($transaction_order_id, 'foodbakery_trans_delivery_date', true);
+		$trans_delivery_time = get_post_meta($transaction_order_id, 'foodbakery_trans_delivery_time', true);
+		$trans_special = get_post_meta($transaction_order_id, 'foodbakery_trans_special', true);
+		if ($trans_first_name != '' || $trans_last_name != '' || $trans_email != '' || $trans_phone_number != '' || $trans_address != '' || $trans_delivery_date != '' || $trans_delivery_time != '' || $trans_special != '') {
 		    ?>
 		    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 		        <div class="customer-detail-holder">
@@ -363,6 +366,24 @@ if (!class_exists('Foodbakery_Order_Detail')) {
 				    <li>
 					<strong><?php esc_html_e('Address :', 'foodbakery') ?></strong>
 					<span><?php echo esc_html($trans_address); ?></span>
+				    </li>
+				<?php } ?>
+				<?php if ('' != $trans_delivery_date) { ?>
+				    <li>
+					<strong><?php esc_html_e('Delivery Date :', 'foodbakery') ?></strong>
+					<span><?php echo esc_html($trans_delivery_date); ?></span>
+				    </li>
+				<?php } ?>
+				<?php if ('' != $trans_delivery_time) { ?>
+				    <li>
+					<strong><?php esc_html_e('Delivery Time :', 'foodbakery') ?></strong>
+					<span><?php echo esc_html($trans_delivery_time); ?></span>
+				    </li>
+				<?php } ?>
+				<?php if ('' != $trans_special) { ?>
+				    <li>
+					<strong><?php esc_html_e('Special Requirements :', 'foodbakery') ?></strong>
+					<span><?php echo esc_html($trans_special); ?></span>
 				    </li>
 				<?php } ?>
 		    	</ul>
