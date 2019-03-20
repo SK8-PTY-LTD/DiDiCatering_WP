@@ -61,16 +61,22 @@ if ( ! function_exists('foodbakery_payment_summary_fields') ) {
 							<textarea class="foodbakery-dev-req-field" name="trans_address">' . $user_info['address'] . '</textarea>
 						</div>
 					</div>
-					<div class="ol-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="ol-lg-6 col-md-6 col-sm-12 col-xs-12">
 						<div class="field-holder">
 							<label>' . esc_html__('Delivery Date and Time', 'foodbakery') . '</label>
 							<input type="text" id="datetimepicker1" class="foodbakery-dev-req-field" name="trans_delivery_date" value="' . $user_info['delivery_date'] . '">
 						</div>
 					</div>
+					<div class="ol-lg-6 col-md-6 col-sm-12 col-xs-12">
+						<div class="field-holder">
+							<labal>* Orders have to be one day before delivery day.<br/></labal>
+							<labal>* Any catering order within 3 days need to confirm with catering provider first before ordering.</labal>
+						</div>
+					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="field-holder">
 							<label>' . esc_html__('Special Requirements', 'foodbakery') . '</label>
-							<textarea class="foodbakery-dev-req-field" name="trans_special" placeholder="eg. Vegetarian or Nuts Free">' . $user_info['special'] . '</textarea>
+							<textarea class="foodbakery-dev-field" name="trans_special" placeholder="eg. Vegetarian or Nuts Free">' . $user_info['special'] . '</textarea>
 						</div>
 					</div>
 				</div>
@@ -419,6 +425,7 @@ if ( ! function_exists('foodbakery_payment_gateways') ) {
 								<li>' . esc_html__('Subtotal', 'foodbakery') . ' <span class="price">' . foodbakery_get_currency($order_m_total, true, '', '', true) . '</span></li>';
 
 					$order_m_total = foodbakery_get_currency($order_m_total, false, '', '', true);
+
 					if ( $menu_order_fee_type == 'delivery' ) {
 						$payment_gw_list .= '<li>' . esc_html__('Delivery fee', 'foodbakery') . ' <span class="price">' . foodbakery_get_currency($menu_order_fee, true, '', '', false) . '</span></li>';
 					} else if ( $menu_order_fee_type == 'pickup' ) {

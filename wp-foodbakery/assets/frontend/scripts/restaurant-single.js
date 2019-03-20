@@ -373,8 +373,7 @@ $(document).on('contentchanged', '#dev-menu-orders-list', function () {
     if (parseFloat(menu_fee_pr_noc) > 0) {
         subtotal_noc += parseFloat(menu_fee_pr_noc);
     }
-
-
+    
     var vat_switch = $('#dev-menu-orders-list').find('.dev-menu-price-con').attr('data-vatsw');
     var vat_perc = $('#dev-menu-orders-list').find('.dev-menu-price-con').attr('data-vat');
 

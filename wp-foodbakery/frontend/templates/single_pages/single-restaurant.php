@@ -488,11 +488,11 @@ $transaction_restaurant_reviews = get_post_meta($foodbakery_restaurant_id, 'food
 								}
 							    }
 							    ?>
-                                                        </ul>
-                                                        <div class="price-area dev-menu-price-con" data-vatsw="<?php echo esc_html($foodbakery_vat_switch) ?>" data-vat="<?php echo floatval($foodbakery_payment_vat) ?>">
-                                                            <ul>
-                                                                <input type="hidden" id="order_subtotal_price" name="order_subtotal_price" value="<?php echo restaurant_menu_price_calc($get_added_menus, $foodbakery_restaurant_id, '', '', '', false) ?>">
-                                                                <li><?php esc_html_e('Subtotal', 'foodbakery') ?> <span class="price"><?php echo foodbakery_get_currency_sign(); ?><em class="dev-menu-subtotal"><?php echo restaurant_menu_price_calc($get_added_menus, $foodbakery_restaurant_id, false, false, false, true) ?></em></span></li>
+									</ul>
+									<div class="price-area dev-menu-price-con" data-vatsw="<?php echo esc_html($foodbakery_vat_switch) ?>" data-vat="<?php echo floatval($foodbakery_payment_vat) ?>">
+										<ul>
+											<input type="hidden" id="order_subtotal_price" name="order_subtotal_price" value="<?php echo restaurant_menu_price_calc($get_added_menus, $foodbakery_restaurant_id, '', '', '', false) ?>">
+											<li><?php esc_html_e('Subtotal', 'foodbakery') ?> <span class="price"><?php echo foodbakery_get_currency_sign(); ?><em class="dev-menu-subtotal"><?php echo restaurant_menu_price_calc($get_added_menus, $foodbakery_restaurant_id, false, false, false, true) ?></em></span></li>
 
 								<?php
 								$show_fee_type = '';
